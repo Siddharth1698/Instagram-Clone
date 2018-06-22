@@ -1,4 +1,4 @@
-package com.example.siddharthm.instagramclone;
+package com.example.siddharthm.instagramclone.Search;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.siddharthm.instagramclone.R;
 import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
 
 public class SearchActivity extends AppCompatActivity {

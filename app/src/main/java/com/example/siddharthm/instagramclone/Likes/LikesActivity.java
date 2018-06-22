@@ -1,4 +1,4 @@
-package com.example.siddharthm.instagramclone;
+package com.example.siddharthm.instagramclone.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,11 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.siddharthm.instagramclone.R;
 import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
 
-public class ProfileActivity extends AppCompatActivity {
-    private Context mContext = ProfileActivity.this;
-    private static int ACTIVITY_NUM = 4;
+public class LikesActivity extends AppCompatActivity {
+    private Context mContext = LikesActivity.this;
+    private static int ACTIVITY_NUM = 3;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
