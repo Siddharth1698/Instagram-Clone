@@ -23,19 +23,30 @@
                     android:layout_centerVertical="true"
                     android:id="@+id/backArrow"
                     tools:ignore="RtlCompat"
-                    android:src="@drawable/ic_check_mark"/>
+                    android:src="@drawable/ic_back_arrow"/>
 
                 <TextView
                     android:layout_toRightOf="@+id/backArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Options"
+                    android:text="Edit Profile"
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:layout_marginStart="5dp"
                     tools:ignore="RtlCompat"
                     android:id="@+id/profileName"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/saveChanges"
+                    tools:ignore="RtlCompat"
+                    android:src="@drawable/ic_check_mark"
+                    android:layout_alignParentRight="true"/>
 
 
 
