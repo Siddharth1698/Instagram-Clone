@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 
 import com.example.siddharthm.instagramclone.R;
@@ -19,11 +20,14 @@ import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
 public class ProfileActivity extends AppCompatActivity {
     private Context mContext = ProfileActivity.this;
     private static int ACTIVITY_NUM = 4;
+    private ProgressBar mProgressBar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         setUpBottomNavigationView();
+        mProgressBar = (ProgressBar)findViewById(R.id.profile_progress_bar);
+        mProgressBar.setVisibility(View.GONE);
         setUpToolBar();
     }
 
