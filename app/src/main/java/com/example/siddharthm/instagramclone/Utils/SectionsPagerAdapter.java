@@ -6,23 +6,30 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
-    private final List<Fragment> mfragmentList = new ArrayList<>();
+
+    private static final String TAG = "SectionsPagerAdapter";
+
+    private final List<Fragment> mFragmentList = new ArrayList<>();
+
+
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return mfragmentList.get(position);
+        return mFragmentList.get(position);
     }
+
 
     @Override
     public int getCount() {
-        return mfragmentList.size();
+        return mFragmentList.size();
     }
+
     public void addFragment(Fragment fragment){
-        mfragmentList.add(fragment);
+        mFragmentList.add(fragment);
     }
+
 }

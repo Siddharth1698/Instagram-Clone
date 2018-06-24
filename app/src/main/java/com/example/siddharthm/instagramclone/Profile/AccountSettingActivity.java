@@ -17,61 +17,78 @@ import com.example.siddharthm.instagramclone.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
 
+
 public class AccountSettingActivity extends AppCompatActivity {
 
+
+
     private Context mContext;
+
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
-    private RelativeLayout mRelativeLaoyout;
+    private RelativeLayout mRelativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_settings);
         mContext = AccountSettingActivity.this;
-        setupSettingList();
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
+
+        setupSettingsList();
+
         setupFragments();
-        mViewPager = (ViewPager)findViewById(R.id.container);
-        mRelativeLaoyout = (RelativeLayout)findViewById(R.id.relLayout1);
-        ImageView backArrow = (ImageView)findViewById(R.id.backArrow);
+
+        //setup the backarrow for navigating back to "ProfileActivity"
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
 
+                finish();
             }
         });
-     }
-     private void setViewPager(int fragmentNumber){
-        mRelativeLaoyout.setVisibility(View.GONE);
+    }
+
+    private void setupFragments(){
+        pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment)); //fragment 0
+        pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment)); //fragment 1
+    }
+
+    private void setViewPager(int fragmentNumber){
+        mRelativeLayout.setVisibility(View.GONE);
+
         mViewPager.setAdapter(pagerAdapter);
         mViewPager.setCurrentItem(fragmentNumber);
-     }
+    }
 
+    private void setupSettingsList(){
 
-     private void setupFragments(){
-        pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new EditProfileFragment(),getString(R.string.edit_profile_fragment));
-         pagerAdapter.addFragment(new SignOutFragment(),getString(R.string.sign_out_fragment));
+        ListView listView = (ListView) findViewById(R.id.lvAccountSettings);
 
+        ArrayList<String> options = new ArrayList<>();
+        options.add(getString(R.string.edit_profile_fragment)); //fragment 0
+        options.add(getString(R.string.sign_out_fragment)); //fragement 1
 
+        ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
+        listView.setAdapter(adapter);
 
-     }
-     private void setupSettingList(){
-         ListView listView = (ListView)findViewById(R.id.lvAccountSettings);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-         ArrayList<String> options = new ArrayList<>();
-         options.add(getString(R.string.edit_profile_fragment));
-         options.add(getString(R.string.sign_out_fragment));
+                setViewPager(position);
+            }
+        });
 
-         ArrayAdapter adapter = new ArrayAdapter(mContext,android.R.layout.simple_list_item_1,options);
-         listView.setAdapter(adapter);
-
-         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-             @Override
-             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 setViewPager(position);
-             }
-         });
-     }
+    }
 }
+
+
+
+
+
+
