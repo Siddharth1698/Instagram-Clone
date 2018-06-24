@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.siddharthm.instagramclone.R;
 import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
+import com.example.siddharthm.instagramclone.Utils.SectionsPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
     private Context mContext = HomeActivity.this;

@@ -1,4 +1,4 @@
-package com.example.siddharthm.instagramclone.Home;
+package com.example.siddharthm.instagramclone.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
