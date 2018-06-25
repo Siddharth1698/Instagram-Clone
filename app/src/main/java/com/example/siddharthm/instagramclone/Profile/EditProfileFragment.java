@@ -23,17 +23,22 @@ public class EditProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         mProfilePhoto = (ImageView) view.findViewById(R.id.profile_photo);
 
-        initImageLoader();
+
 
         setProfileImage();
+
+        ImageView backArrow = (ImageView)view.findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
 
-    private void initImageLoader(){
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(getActivity());
-        ImageLoader.getInstance().init(universalImageLoader.getConfig());
-    }
+
 
     private void setProfileImage(){
         String imgURL = "www.androidcentral.com/sites/androidcentral.com/files/styles/xlarge/public/article_images/2016/08/ac-lloyd.jpg?itok=bb72IeLf";

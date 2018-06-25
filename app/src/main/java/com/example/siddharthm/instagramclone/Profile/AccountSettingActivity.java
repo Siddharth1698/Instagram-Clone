@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.siddharthm.instagramclone.R;
+import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
 import com.example.siddharthm.instagramclone.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
 public class AccountSettingActivity extends AppCompatActivity {
 
 
-
+    private static int ACTIVITY_NUM = 4;
     private Context mContext;
 
     private SectionsStatePagerAdapter pagerAdapter;
@@ -38,6 +41,7 @@ public class AccountSettingActivity extends AppCompatActivity {
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
 
         setupSettingsList();
+        setUpBottomNavigationView();
 
         setupFragments();
 
@@ -83,6 +87,15 @@ public class AccountSettingActivity extends AppCompatActivity {
                 setViewPager(position);
             }
         });
+
+    }
+    private void setUpBottomNavigationView(){
+        com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx bottomnavigationviewex = (com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomnavigationviewex);
+        BottomNavigationViewHelper.enableNavigation(mContext,bottomnavigationviewex);
+        Menu menu = bottomnavigationviewex.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
 
     }
 }

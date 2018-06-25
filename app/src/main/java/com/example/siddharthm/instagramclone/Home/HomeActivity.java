@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import com.example.siddharthm.instagramclone.R;
 import com.example.siddharthm.instagramclone.Utils.BottomNavigationViewHelper;
 import com.example.siddharthm.instagramclone.Utils.SectionsPagerAdapter;
+import com.example.siddharthm.instagramclone.Utils.UniversalImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
     private Context mContext = HomeActivity.this;
@@ -21,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        initImageLoader();
         setUpBottomNavigationView();
         setupViewPager();
 
@@ -47,5 +50,9 @@ public class HomeActivity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
 
+    }
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 }
