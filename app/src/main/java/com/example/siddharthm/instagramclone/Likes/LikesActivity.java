@@ -16,8 +16,8 @@ public class LikesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-//        setUpBottomNavigationView();
+        setContentView(R.layout.activity_home);
+        setUpBottomNavigationView();
     }
     private void setUpBottomNavigationView(){
         com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx bottomnavigationviewex = (com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
